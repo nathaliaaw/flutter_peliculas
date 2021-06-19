@@ -1,6 +1,5 @@
  //@dart=2.9
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:peliculas/src/pages/home_pages.dart';
 void main() => runApp(MyApp());
  
