@@ -25,7 +25,7 @@ class PeliculasProvider {
     final peliculas = new Peliculas.fromJsonList(decodeData['results']);
     print(peliculas.items[2].title);
     return peliculas.items;
-  }
+  } 
 
   Future<List<Pelicula>> getEnCines() async {
     final url = Uri.https(_url, '3/movie/now_playing', {
