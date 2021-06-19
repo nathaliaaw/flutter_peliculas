@@ -30,7 +30,7 @@ class PeliculasProvider {
   Future<List<Pelicula>> getEnCines() async {
     final url = Uri.https(_url, '3/movie/now_playing', {
       'api_key': _apiKey,
-      'lenguage': _language,
+      'lenguage': _language, 
     });
     return await _procesarRespuesta(url);
   }
