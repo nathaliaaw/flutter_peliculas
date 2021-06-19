@@ -69,4 +69,11 @@ class Pelicula {
       return 'https://image.tmdb.org/t/p/w500/$posterPath';
     }
   }
+  getBackgroundImg(){
+        if (posterPath == null) {
+      return 'https://image.freepik.com/vector-gratis/revista-vacia-blanco-o-portada-libro_134452-6.jpg';
+    } else {
+      return 'https://image.tmdb.org/t/p/w500/$backdropPath';
+    }
+  }
 }
