@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:peliculas/src/providers/peliculas_providers.dart';
+import 'package:peliculas/src/search/search_delegate.dart';
 import 'package:peliculas/src/widgets/car_swiper_page.dart';
 import 'package:peliculas/src/widgets/movie_horizontal.dart';
 
@@ -9,18 +10,30 @@ class HomePage extends StatelessWidget {
   final peliculasProvider = new PeliculasProvider();
   @override
   Widget build(BuildContext context) {
-  peliculasProvider.getPopulares();
+    peliculasProvider.getPopulares();
     return Scaffold(
       appBar: AppBar(
         title: Text('Peliculas'),
         backgroundColor: Colors.indigoAccent,
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.search))],
+        actions: [
+          IconButton(
+              onPressed: () {
+                showSearch(
+                    context: context, delegate: DataSearch()
+                    // , query: 'Hola'
+                    );
+              },
+              icon: Icon(Icons.search))
+        ],
       ),
       body: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Expanded(child: _swiperTargetas(),flex: 4,),
+            Expanded(
+              child: _swiperTargetas(),
+              flex: 4,
+            ),
             _footer(context),
           ],
         ),
@@ -58,11 +71,11 @@ class HomePage extends StatelessWidget {
           ),
           StreamBuilder(
               stream: peliculasProvider.popularesStream,
-              
               builder: (BuildContext context, AsyncSnapshot snapshot) {
                 if (snapshot.hasData) {
-                  return MovieHorizontal(peliculas: snapshot.data
-                  ,siguientePagina: peliculasProvider.getPopulares,
+                  return MovieHorizontal(
+                    peliculas: snapshot.data,
+                    siguientePagina: peliculasProvider.getPopulares,
                   );
                 }
                 return Center(child: CircularProgressIndicator());
