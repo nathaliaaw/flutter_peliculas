@@ -14,6 +14,8 @@ class Peliculas {
 }
 
 class Pelicula {
+
+  String? uniqueID;
   int? voteCount;
   int? id;
   bool? video;
