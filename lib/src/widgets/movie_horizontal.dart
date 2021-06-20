@@ -38,13 +38,16 @@ class MovieHorizontal extends StatelessWidget {
       margin: EdgeInsets.only(right: 15.0),
       child: Column(
         children: <Widget>[
-          ClipRRect(
-            borderRadius: BorderRadius.circular(20.0),
-            child: FadeInImage(
-              image: NetworkImage(pelicula.getPosterImg()),
-              placeholder: AssetImage('assets/img/no-image.jpg'),
-              fit: BoxFit.cover,
-              height: 130.0,
+          Hero(
+            tag: pelicula.id!,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20.0),
+              child: FadeInImage(
+                image: NetworkImage(pelicula.getPosterImg()),
+                placeholder: AssetImage('assets/img/no-image.jpg'),
+                fit: BoxFit.cover,
+                height: 130.0,
+              ),
             ),
           ),
           Text(
@@ -69,13 +72,16 @@ class MovieHorizontal extends StatelessWidget {
         margin: EdgeInsets.only(right: 15.0),
         child: Column(
           children: <Widget>[
-            ClipRRect(
-              borderRadius: BorderRadius.circular(20.0),
-              child: FadeInImage(
-                image: NetworkImage(pelicula.getPosterImg()),
-                placeholder: AssetImage('assets/img/no-image.jpg'),
-                fit: BoxFit.cover,
-                height: 130.0,
+            Hero(
+              tag: pelicula.id!,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20.0),
+                child: FadeInImage(
+                  image: NetworkImage(pelicula.getPosterImg()),
+                  placeholder: AssetImage('assets/img/no-image.jpg'),
+                  fit: BoxFit.cover,
+                  height: 130.0,
+                ),
               ),
             ),
             Text(
